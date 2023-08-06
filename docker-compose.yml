@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  gateway:
+    env_file:
+      - .env
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - TZ=Asia/Ho_Chi_Minh
+    ports:
+      - 8084:${PORT}
+    build:
+      context: '.'
+      dockerfile: Dockerfile
+    image: test
+
+    restart: unless-stopped
